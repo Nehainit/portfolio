@@ -57,11 +57,174 @@ export default function Hero() {
 
   return (
     <motion.section
-      className="min-h-screen flex flex-col relative"
+      className="min-h-screen flex flex-col relative overflow-hidden"
       initial="hidden"
       animate="visible"
       variants={staggerContainer}
     >
+      {/* Floating Animated Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Large floating circle - top right */}
+        <motion.div
+          className="absolute top-20 right-[10%] w-64 h-64 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 opacity-60"
+          animate={{
+            y: [0, -20, 0],
+            rotate: [0, 5, 0],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+
+        {/* Medium circle - left side */}
+        <motion.div
+          className="absolute top-1/3 left-[5%] w-40 h-40 rounded-full bg-gradient-to-br from-gray-200 to-gray-300 opacity-40"
+          animate={{
+            y: [0, 15, 0],
+            x: [0, 10, 0],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+        />
+
+        {/* Small circle - bottom right */}
+        <motion.div
+          className="absolute bottom-1/4 right-[15%] w-24 h-24 rounded-full bg-gradient-to-br from-gray-300 to-gray-400 opacity-30"
+          animate={{
+            y: [0, -25, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.5,
+          }}
+        />
+
+        {/* Tiny floating dots */}
+        <motion.div
+          className="absolute top-1/4 right-1/4 w-3 h-3 rounded-full bg-gray-400"
+          animate={{
+            y: [0, -30, 0],
+            opacity: [0.4, 0.8, 0.4],
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div
+          className="absolute top-1/2 left-1/4 w-2 h-2 rounded-full bg-gray-500"
+          animate={{
+            y: [0, 20, 0],
+            opacity: [0.3, 0.6, 0.3],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1.5,
+          }}
+        />
+        <motion.div
+          className="absolute bottom-1/3 left-[20%] w-4 h-4 rounded-full bg-gray-300"
+          animate={{
+            y: [0, -15, 0],
+            x: [0, 10, 0],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2,
+          }}
+        />
+
+        {/* Floating code bracket */}
+        <motion.div
+          className="absolute top-[15%] left-[15%] text-4xl text-gray-300 font-mono"
+          animate={{
+            y: [0, -10, 0],
+            rotate: [-5, 5, -5],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          {"</>"}
+        </motion.div>
+
+        {/* Floating AI icon */}
+        <motion.div
+          className="absolute bottom-[20%] right-[8%] w-16 h-16 rounded-2xl bg-gray-100 flex items-center justify-center shadow-lg"
+          animate={{
+            y: [0, -15, 0],
+            rotate: [0, 5, 0],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.8,
+          }}
+        >
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#374151" strokeWidth="1.5">
+            <circle cx="12" cy="12" r="3" />
+            <path d="M12 2v4m0 12v4m10-10h-4M6 12H2m15.07-7.07l-2.83 2.83m-8.48 8.48l-2.83 2.83m0-14.14l2.83 2.83m8.48 8.48l2.83 2.83" />
+          </svg>
+        </motion.div>
+
+        {/* Floating Python icon */}
+        <motion.div
+          className="absolute top-[40%] right-[5%] w-14 h-14 rounded-xl bg-gray-100 flex items-center justify-center shadow-md"
+          animate={{
+            y: [0, 12, 0],
+            x: [0, -5, 0],
+          }}
+          transition={{
+            duration: 4.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1.2,
+          }}
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="#374151">
+            <path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05z"/>
+          </svg>
+        </motion.div>
+
+        {/* Floating data icon */}
+        <motion.div
+          className="absolute top-[25%] left-[8%] w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center shadow-md"
+          animate={{
+            y: [0, -18, 0],
+            rotate: [0, -5, 0],
+          }}
+          transition={{
+            duration: 5.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.3,
+          }}
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#374151" strokeWidth="1.5">
+            <ellipse cx="12" cy="5" rx="9" ry="3" />
+            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+          </svg>
+        </motion.div>
+      </div>
+
       {/* Header */}
       <motion.header
         className="flex justify-between items-center px-6 md:px-10 py-5"
