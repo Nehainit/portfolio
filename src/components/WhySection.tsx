@@ -141,29 +141,72 @@ export default function WhySection() {
           </div>
         </motion.div>
 
-        {/* Experience Card - Full Width */}
+        {/* Experience Cards Row */}
         <motion.div
-          className="md:col-span-3 bg-gray-50 border border-gray-100 rounded-3xl p-8 cursor-default transition-all duration-300 hover:bg-gray-900 group"
+          className="md:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-4"
           variants={scaleFadeUp}
-          whileHover={{
-            scale: 0.98,
-            transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] },
-          }}
         >
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center text-white text-sm font-bold">
-              C
+          {/* Freelance Experience */}
+          <motion.div
+            className="bg-gray-50 border border-gray-100 rounded-3xl p-8 cursor-default transition-all duration-300 hover:bg-gray-900 group"
+            whileHover={{
+              scale: 0.98,
+              transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] },
+            }}
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-8 bg-gray-700 rounded-lg flex items-center justify-center text-white text-sm font-bold">
+                AI
+              </div>
+              <div>
+                <span className="font-semibold text-gray-900 transition-colors duration-300 group-hover:text-white block">AI Engineer (Freelance)</span>
+                <span className="text-xs text-gray-400 transition-colors duration-300 group-hover:text-gray-500">2025 – Present | Remote</span>
+              </div>
             </div>
-            <span className="font-semibold text-gray-900 transition-colors duration-300 group-hover:text-white">Cummins Inc.</span>
-          </div>
-          <p className="text-gray-600 leading-relaxed max-w-2xl transition-colors duration-300 group-hover:text-gray-300">
-            &ldquo;Built robust Databricks workflows for big data processing, reducing
-            data latency and improving pipeline reliability. Managed Oracle to data
-            lake migration with ETL pipelines using SSIS.&rdquo;
-          </p>
-          <div className="mt-4 text-sm text-gray-400 transition-colors duration-300 group-hover:text-gray-500">
-            Associate Data Engineer
-          </div>
+            <p className="text-gray-600 leading-relaxed transition-colors duration-300 group-hover:text-gray-300 text-sm">
+              &ldquo;Developed Loan Against Property module and Cash Flow RAG system
+              using Langflow and OpenAI. Built LLM orchestration pipelines and
+              business workflows with vector databases and REST APIs.&rdquo;
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {["Langflow", "OpenAI", "Python", "RAG"].map((tag) => (
+                <span key={tag} className="text-xs px-2 py-1 bg-gray-200 text-gray-600 rounded-full transition-colors duration-300 group-hover:bg-gray-700 group-hover:text-gray-300">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Cummins Experience */}
+          <motion.div
+            className="bg-gray-50 border border-gray-100 rounded-3xl p-8 cursor-default transition-all duration-300 hover:bg-gray-900 group"
+            whileHover={{
+              scale: 0.98,
+              transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] },
+            }}
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center text-white text-sm font-bold">
+                C
+              </div>
+              <div>
+                <span className="font-semibold text-gray-900 transition-colors duration-300 group-hover:text-white block">Cummins Inc.</span>
+                <span className="text-xs text-gray-400 transition-colors duration-300 group-hover:text-gray-500">Associate Data Engineer</span>
+              </div>
+            </div>
+            <p className="text-gray-600 leading-relaxed transition-colors duration-300 group-hover:text-gray-300 text-sm">
+              &ldquo;Built robust Databricks workflows for big data processing, reducing
+              data latency and improving pipeline reliability. Managed Oracle to data
+              lake migration with ETL pipelines using SSIS.&rdquo;
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {["Databricks", "SSIS", "Oracle", "ETL"].map((tag) => (
+                <span key={tag} className="text-xs px-2 py-1 bg-gray-200 text-gray-600 rounded-full transition-colors duration-300 group-hover:bg-gray-700 group-hover:text-gray-300">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </motion.div>
         </motion.div>
       </motion.div>
 
