@@ -372,8 +372,8 @@ export default function Hero() {
         >
           <p className="text-gray-600 text-sm md:text-base italic leading-relaxed mb-5">
             &ldquo;AI Engineer with 2+ years of experience building production-grade LLM
-            applications, RAG systems, and intelligent automation pipelines. I transform
-            unstructured data into actionable insights.&rdquo;
+            applications, RAG systems, and intelligent automation pipelines. Skilled in
+            Data Governance and certified SAFe 6 Practitioner.&rdquo;
           </p>
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center text-white text-xs font-semibold">

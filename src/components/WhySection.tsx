@@ -70,11 +70,11 @@ export default function WhySection() {
           whileHover={{ scale: 0.97, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } }}
         >
           <span className="text-sm text-gray-400 mb-4 block transition-colors duration-300 group-hover:text-gray-500">What I bring:</span>
-          <ul className="space-y-3">
+          <ul className="space-y-2">
             {[
               { icon: <LayersIcon />, label: "LLM & RAG Systems" },
-              { icon: <DatabaseIcon />, label: "Data Engineering" },
-              { icon: <MonitorIcon />, label: "Full-Stack AI Apps" },
+              { icon: <DatabaseIcon />, label: "Data Governance" },
+              { icon: <MonitorIcon />, label: "SAFe 6 Practitioner" },
             ].map((item, i) => (
               <motion.li
                 key={item.label}
