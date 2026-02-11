@@ -160,16 +160,16 @@ export default function WhySection() {
               </div>
               <div>
                 <span className="font-semibold text-gray-900 transition-colors duration-300 group-hover:text-white block">AI Engineer (Freelance)</span>
-                <span className="text-xs text-gray-400 transition-colors duration-300 group-hover:text-gray-500">2025 – Present | Remote</span>
+                <span className="text-xs text-gray-400 transition-colors duration-300 group-hover:text-gray-500">2 months | Remote</span>
               </div>
             </div>
             <p className="text-gray-600 leading-relaxed transition-colors duration-300 group-hover:text-gray-300 text-sm">
               &ldquo;Developed Loan Against Property module and Cash Flow RAG system
               using Langflow and OpenAI. Built LLM orchestration pipelines and
-              business workflows with vector databases and REST APIs.&rdquo;
+              AI-driven business workflows.&rdquo;
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
-              {["Langflow", "OpenAI", "Python", "RAG"].map((tag) => (
+              {["Langflow", "OpenAI"].map((tag) => (
                 <span key={tag} className="text-xs px-2 py-1 bg-gray-200 text-gray-600 rounded-full transition-colors duration-300 group-hover:bg-gray-700 group-hover:text-gray-300">
                   {tag}
                 </span>
