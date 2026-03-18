@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 const HF_TOKEN = process.env.HF_TOKEN;
 const MODEL = "Qwen/Qwen2.5-72B-Instruct";
-const API_URL = `https://api-inference.huggingface.co/models/${MODEL}/v1/chat/completions`;
+const API_URL = `https://router.huggingface.co/models/${MODEL}/v1/chat/completions`;
 
 const NEHA_CONTEXT = `
 Neha Dubey is a skilled AI and Data Engineering professional with 2+ years of experience building production-grade LLM applications, RAG systems, and intelligent automation pipelines. Skilled in Data Governance and certified SAFe 6 Practitioner.
