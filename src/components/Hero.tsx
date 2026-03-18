@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion } from "motion/react";
 import {
   staggerContainer,
   buttonVariants,
   logoReveal,
   scaleFadeUp,
+  easeOutExpo,
 } from "@/lib/animations";
 import ScrollPrompt from "./ScrollPrompt";
 import Toast from "./Toast";
@@ -278,112 +280,136 @@ export default function Hero() {
         </motion.button>
       </motion.header>
 
-      {/* Main Hero Content */}
-      <div className="flex-1 flex flex-col items-center justify-center px-6 md:px-10 py-12">
-        {/* Main Headline - Dropped Animation */}
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-medium text-center leading-[1.3] max-w-3xl mb-10">
-          <SplitTextWithRipple>I&apos;m Neha, I bring products to life through AI and code</SplitTextWithRipple>
-        </h1>
+      {/* Main Hero Content — Two Column */}
+      <div className="flex-1 flex flex-col lg:flex-row items-center justify-center px-6 md:px-10 py-12 gap-10 lg:gap-16">
+        {/* Left Column — Text */}
+        <div className="flex-1 flex flex-col items-center lg:items-start max-w-2xl">
+          {/* Main Headline */}
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-medium text-center lg:text-left leading-[1.3] mb-10">
+            <SplitTextWithRipple>I&apos;m Neha, I bring products to life through AI and code</SplitTextWithRipple>
+          </h1>
 
-        {/* CTA Buttons */}
-        <motion.div
-          className="flex flex-col sm:flex-row gap-3 mb-12"
-          variants={{
-            hidden: {},
-            visible: {
-              transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.5,
+          {/* CTA Buttons */}
+          <motion.div
+            className="flex flex-col sm:flex-row gap-3 mb-12"
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.1,
+                  delayChildren: 0.5,
+                },
               },
-            },
-          }}
-        >
-          <motion.a
-            href="mailto:nehadubey1021@gmail.com"
-            className="group inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-full text-sm font-medium transition-all duration-300 hover:bg-black hover:shadow-lg"
-            variants={buttonVariants}
-            whileHover={{ scale: 0.95 }}
-            whileTap={{ scale: 0.9 }}
+            }}
           >
-            Let&apos;s talk
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              className="transition-transform duration-300 group-hover:translate-x-1"
+            <motion.a
+              href="mailto:nehadubey1021@gmail.com"
+              className="group inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-full text-sm font-medium transition-all duration-300 hover:bg-black hover:shadow-lg"
+              variants={buttonVariants}
+              whileHover={{ scale: 0.95 }}
+              whileTap={{ scale: 0.9 }}
             >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </motion.a>
-          <motion.a
-            href="https://www.linkedin.com/in/nehadubey11/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-50 text-gray-900 rounded-full text-sm font-medium border border-gray-200 transition-all duration-300 hover:bg-gray-900 hover:text-white hover:border-gray-900"
-            variants={buttonVariants}
-            whileHover={{ scale: 0.95 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-            </svg>
-            Connect on LinkedIn
-          </motion.a>
-        </motion.div>
+              Let&apos;s talk
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </motion.a>
+            <motion.a
+              href="https://www.linkedin.com/in/nehadubey11/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gray-50 text-gray-900 rounded-full text-sm font-medium border border-gray-200 transition-all duration-300 hover:bg-gray-900 hover:text-white hover:border-gray-900"
+              variants={buttonVariants}
+              whileHover={{ scale: 0.95 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+              Connect on LinkedIn
+            </motion.a>
+          </motion.div>
 
-        {/* Company Logos */}
-        <motion.div
-          className="flex items-center justify-center gap-8 md:gap-12 mb-12"
-          variants={{
-            hidden: {},
-            visible: {
-              transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.7,
+          {/* Company Logos */}
+          <motion.div
+            className="flex items-center justify-center lg:justify-start gap-8 md:gap-12 mb-12"
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.1,
+                  delayChildren: 0.7,
+                },
               },
-            },
-          }}
-        >
-          {["Cummins", "Infomo", "NIT Jalandhar"].map((company) => (
-            <motion.span
-              key={company}
-              className="text-sm font-medium text-gray-400 cursor-default"
-              variants={logoReveal}
-              whileHover={{ scale: 0.95, color: "#1f2937" }}
-            >
-              {company}
-            </motion.span>
-          ))}
-        </motion.div>
+            }}
+          >
+            {["Cummins", "Infomo", "NIT Jalandhar"].map((company) => (
+              <motion.span
+                key={company}
+                className="text-sm font-medium text-gray-400 cursor-default"
+                variants={logoReveal}
+                whileHover={{ scale: 0.95, color: "#1f2937" }}
+              >
+                {company}
+              </motion.span>
+            ))}
+          </motion.div>
 
-        {/* Testimonial Card */}
+          {/* Testimonial Card */}
+          <motion.div
+            className="max-w-xl w-full bg-gray-50/80 backdrop-blur-sm border border-gray-100 rounded-2xl p-6 md:p-8 cursor-default"
+            variants={scaleFadeUp}
+            transition={{ delay: 0.9 }}
+            whileHover={{
+              scale: 0.98,
+              boxShadow: "0 25px 50px rgba(0,0,0,0.1)",
+              transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] },
+            }}
+          >
+            <p className="text-gray-600 text-sm md:text-base italic leading-relaxed mb-5">
+              &ldquo;AI Engineer with 2+ years of experience building production-grade LLM
+              applications, RAG systems, and intelligent automation pipelines. Skilled in
+              Data Governance and certified SAFe 6 Practitioner.&rdquo;
+            </p>
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center text-white text-xs font-semibold">
+                ND
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-gray-900">Neha Dubey</p>
+                <p className="text-xs text-gray-500">AI Engineer</p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Right Column — Profile Photo */}
         <motion.div
-          className="max-w-xl w-full bg-gray-50/80 backdrop-blur-sm border border-gray-100 rounded-2xl p-6 md:p-8 cursor-default"
-          variants={scaleFadeUp}
-          transition={{ delay: 0.9 }}
-          whileHover={{
-            scale: 0.98,
-            boxShadow: "0 25px 50px rgba(0,0,0,0.1)",
-            transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] },
-          }}
+          className="relative shrink-0"
+          initial={{ opacity: 0, scale: 0.9, x: 40 }}
+          animate={{ opacity: 1, scale: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: easeOutExpo }}
         >
-          <p className="text-gray-600 text-sm md:text-base italic leading-relaxed mb-5">
-            &ldquo;AI Engineer with 2+ years of experience building production-grade LLM
-            applications, RAG systems, and intelligent automation pipelines. Skilled in
-            Data Governance and certified SAFe 6 Practitioner.&rdquo;
-          </p>
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center text-white text-xs font-semibold">
-              ND
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-gray-900">Neha Dubey</p>
-              <p className="text-xs text-gray-500">AI Engineer</p>
-            </div>
+          <div className="relative w-64 h-80 md:w-80 md:h-[400px] lg:w-[360px] lg:h-[450px] rounded-3xl overflow-hidden shadow-2xl">
+            <Image
+              src="/profile_photo.jpeg"
+              alt="Neha Dubey"
+              fill
+              className="object-cover object-top"
+              priority
+            />
           </div>
+          {/* Decorative ring behind photo */}
+          <div className="absolute -inset-3 rounded-3xl border border-gray-200 -z-10" />
+          <div className="absolute -inset-6 rounded-3xl border border-gray-100 -z-10" />
         </motion.div>
       </div>
 
