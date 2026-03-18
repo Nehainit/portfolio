@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { motion } from "motion/react";
 import {
   staggerContainer,
@@ -399,12 +398,10 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4, ease: easeOutExpo }}
         >
           <div className="relative w-64 h-80 md:w-80 md:h-[400px] lg:w-[360px] lg:h-[450px] rounded-3xl overflow-hidden shadow-2xl">
-            <Image
+            <img
               src="/profile_photo.jpeg"
               alt="Neha Dubey"
-              fill
-              className="object-cover object-top"
-              priority
+              className="w-full h-full object-cover object-top"
             />
           </div>
           {/* Decorative ring behind photo */}
