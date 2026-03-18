@@ -46,10 +46,6 @@ html.lenis body {
   pointer-events: none;
 }
 
-/* Allow interaction with chat widget iframe */
-.lenis.lenis-smooth .chat-widget-iframe {
-  pointer-events: auto;
-}
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
