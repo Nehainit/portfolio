@@ -4,7 +4,9 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { easeOutExpo } from "@/lib/animations";
 
-const STREAMLIT_URL = process.env.NEXT_PUBLIC_CHAT_URL || "https://talk-to-neha.streamlit.app";
+const STREAMLIT_URL =
+  (process.env.NEXT_PUBLIC_CHAT_URL || "https://talk-to-neha.streamlit.app") +
+  "?embed=true&embed_options=light_theme";
 
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
