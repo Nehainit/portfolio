@@ -5,6 +5,7 @@ import WhySection from "@/components/WhySection";
 import AboutSection from "@/components/AboutSection";
 import ContactSection, { Footer } from "@/components/ContactSection";
 import CursorRipple from "@/components/CursorRipple";
+import ChatWidget from "@/components/ChatWidget";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <ContactSection />
         <Footer />
       </main>
+      <ChatWidget />
     </SmoothScroll>
   );
 }
