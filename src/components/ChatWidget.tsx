@@ -95,7 +95,7 @@ export default function ChatWidget() {
                   ND
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-gray-900 font-serif italic">
+                  <p className="text-sm font-semibold text-gray-900">
                     Talk to Neha
                   </p>
                   <div className="flex items-center gap-1.5">
