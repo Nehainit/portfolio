@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "motion/react";
 import {
   staggerContainer,
@@ -10,7 +9,6 @@ import {
   easeOutExpo,
 } from "@/lib/animations";
 import ScrollPrompt from "./ScrollPrompt";
-import Toast from "./Toast";
 import { RippleWord } from "./RippleText";
 
 // Split text into words with ripple effect
@@ -28,34 +26,6 @@ function SplitTextWithRipple({ children }: { children: string }) {
 }
 
 export default function Hero() {
-  const [showToast, setShowToast] = useState(false);
-  const [copied, setCopied] = useState(false);
-
-  const copyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText("nehadubey1021@gmail.com");
-      setCopied(true);
-      setShowToast(true);
-      setTimeout(() => {
-        setShowToast(false);
-        setCopied(false);
-      }, 2000);
-    } catch {
-      const textArea = document.createElement("textarea");
-      textArea.value = "nehadubey1021@gmail.com";
-      document.body.appendChild(textArea);
-      textArea.select();
-      document.execCommand("copy");
-      document.body.removeChild(textArea);
-      setCopied(true);
-      setShowToast(true);
-      setTimeout(() => {
-        setShowToast(false);
-        setCopied(false);
-      }, 2000);
-    }
-  };
-
   return (
     <motion.section
       className="min-h-screen flex flex-col relative overflow-hidden"
@@ -241,42 +211,24 @@ export default function Hero() {
         >
           GitHub
         </motion.a>
-        <motion.button
-          onClick={copyEmail}
-          className={`flex items-center gap-2 text-sm px-3 py-1.5 rounded-full transition-all duration-300 ${
-            copied
-              ? "bg-gray-900 text-white"
-              : "text-gray-500 hover:text-white hover:bg-gray-900"
-          }`}
-          whileHover={{ scale: 0.95 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          {copied ? "Copied!" : "Copy my email"}
-          {copied ? (
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
+        <nav aria-label="Primary" className="flex items-center gap-1 md:gap-2">
+          {[
+            ["Experience", "/experience"],
+            ["Projects", "/projects"],
+            ["Case Studies", "/case-studies"],
+            ["Socials", "/socials"],
+          ].map(([label, href]) => (
+            <motion.a
+              key={href}
+              href={href}
+              className="text-xs md:text-sm text-gray-500 hover:text-white hover:bg-gray-900 px-2 md:px-3 py-1.5 rounded-full transition-all duration-300"
+              whileHover={{ scale: 0.95 }}
+              whileTap={{ scale: 0.9 }}
             >
-              <path d="M20 6L9 17l-5-5" />
-            </svg>
-          ) : (
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-            </svg>
-          )}
-        </motion.button>
+              {label}
+            </motion.a>
+          ))}
+        </nav>
       </motion.header>
 
       {/* Main Hero Content — Two Column */}
@@ -373,11 +325,23 @@ export default function Hero() {
               transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] },
             }}
           >
-            <p className="text-gray-600 text-sm md:text-base italic leading-relaxed mb-5">
-              &ldquo;AI Engineer with 2+ years of experience building production-grade LLM
-              applications, RAG systems, and intelligent automation pipelines. Skilled in
-              Data Governance and certified SAFe 6 Practitioner.&rdquo;
-            </p>
+            <div className="text-gray-600 text-sm md:text-base italic leading-relaxed mb-5 space-y-3">
+              <p>
+                I&apos;m an AI Engineer with nearly 4 years of engineering experience, building
+                AI-powered products from idea to production.
+              </p>
+              <p>
+                I work across AI, backend engineering, and data, building agentic workflows,
+                RAG systems, document intelligence and OCR pipelines, voice applications,
+                ML-powered decision systems, and the APIs and infrastructure behind them.
+              </p>
+              <p>
+                My work goes beyond prototypes. I design the architecture, build the backend,
+                connect models and data sources, handle databases and integrations, and package
+                systems for production using tools like Python, FastAPI, PostgreSQL, Docker,
+                LangGraph, and modern LLMs.
+              </p>
+            </div>
             <div className="flex items-center gap-3">
               <div className="w-9 h-9 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center text-white text-xs font-semibold">
                 ND
@@ -393,8 +357,8 @@ export default function Hero() {
         {/* Right Column — Profile Photo */}
         <motion.div
           className="relative shrink-0"
-          initial={{ opacity: 0, scale: 0.9, x: 40 }}
-          animate={{ opacity: 1, scale: 1, x: 0 }}
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: easeOutExpo }}
         >
           <div className="relative w-64 h-80 md:w-80 md:h-[400px] lg:w-[360px] lg:h-[450px] rounded-3xl overflow-hidden shadow-2xl">
@@ -413,8 +377,6 @@ export default function Hero() {
       {/* Scroll Down Prompt */}
       <ScrollPrompt />
 
-      {/* Toast Notification */}
-      <Toast message="Copied to clipboard!" isVisible={showToast} />
     </motion.section>
   );
 }

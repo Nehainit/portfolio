@@ -1,0 +1,114 @@
+# Margin Intelligence
+
+## Building an AI intelligence layer for insurance operations
+
+**Role:** GenAI Developer
+**Focus:** Machine Learning, Document AI, Workflow Automation, and API Engineering
+**Technology:** Python, Langflow, Generative AI, Machine Learning, OCR, PostgreSQL, Amazon S3, Docker
+
+## Overview
+
+Margin Intelligence is an AI-powered platform developed to support complex insurance operations through machine learning, document intelligence, and workflow automation.
+
+The project was not limited to building an individual model. It required a complete intelligence layer that could process structured and unstructured information, coordinate multiple AI capabilities, expose them securely to an application, and provide explainable results for human review.
+
+As the GenAI Developer, I owned the AI/ML layer—from model development and training to workflow orchestration and Python API integration.
+
+## The Challenge
+
+Insurance operations involve sensitive information, supporting documents, business rules, and decisions that cannot always be handled through simple automation.
+
+The system needed to:
+
+- Process information arriving in different formats.
+- Extract reliable data from uploaded documents.
+- Identify inconsistencies and unusual patterns.
+- Coordinate several machine-learning and AI processes.
+- Make technical outputs understandable to business users.
+- Preserve human control over sensitive or uncertain decisions.
+
+The main challenge was turning separate AI capabilities into one reliable and traceable product workflow.
+
+## My Role
+
+I was responsible for designing and implementing the project's intelligent processing layer.
+
+My contribution included:
+
+- Developing, training, and integrating multiple machine-learning models.
+- Managing model inputs, inference, validation, and structured outputs.
+- Building automated AI workflows using Langflow.
+- Creating custom Python components for specialised processing.
+- Developing Python API endpoints for application integration.
+- Building OCR and document-intelligence pipelines.
+- Implementing anomaly, risk, and fraud-signal analysis.
+- Developing document consistency and potential tampering checks.
+- Integrating workflow results with storage and audit records.
+- Designing explainable outputs for human review.
+- Supporting containerised, environment-based deployment.
+
+## Technical Solution
+
+### Machine-Learning Layer
+
+I developed and integrated models for multiple decision-support tasks, including risk analysis, segmentation, scoring, and anomaly identification.
+
+The work covered the model lifecycle from training and input preparation through inference and output validation. Model results were normalised into structured responses so they could be consumed consistently by downstream workflows and application services.
+
+### Document Intelligence and Integrity Screening
+
+I built a document-processing pipeline using OCR and AI-assisted extraction to convert uploaded documents into structured data.
+
+The pipeline could surface:
+
+- Missing or inconsistent information.
+- Differences between submitted and extracted data.
+- Low-confidence extractions.
+- Unusual document patterns.
+- Potential forgery or tampering indicators.
+- Cases requiring additional review.
+
+These indicators were treated as supporting evidence—not automatic proof of fraud—so uncertain cases remained under human control.
+
+### Langflow Workflow Automation
+
+Langflow was used to orchestrate the AI processes. The workflows coordinated input validation, document processing, model inference, generative-AI analysis, result formatting, persistence, and error handling.
+
+I also developed custom Python components where the project required logic beyond the standard workflow components. This allowed the models and AI services to operate as repeatable, maintainable product workflows.
+
+### Python API Integration
+
+I created the Python API layer that connected the Langflow workflows and machine-learning models with the application.
+
+The endpoints handled workflow execution, document-processing requests, model inputs, validation, and structured responses. This converted the underlying AI work into reusable backend capabilities rather than isolated experiments.
+
+### Explainability and Human Oversight
+
+The platform was designed around a human-in-the-loop approach.
+
+Model predictions, anomaly indicators, document confidence, and fraud-related signals were translated into understandable supporting information. Sensitive, complex, or uncertain results could then be escalated for professional review.
+
+## Architecture at a Glance
+
+**Application → Python APIs → Langflow workflows → ML/OCR/GenAI components → Validated structured results → Data and audit layer → Human review**
+
+This separation allowed models and workflows to evolve without tightly coupling them to the user-facing application.
+
+## Outcome
+
+The project delivered an integrated intelligence layer combining:
+
+- Multiple trained machine-learning models.
+- OCR and document extraction.
+- Document-integrity and tampering indicators.
+- Anomaly and fraud-signal analysis.
+- Generative-AI explanations.
+- Langflow-based automation.
+- Python backend services.
+- Persistent and auditable results.
+
+The result demonstrated how AI can support complex insurance operations while retaining explainability, traceability, and human accountability.
+
+The project was also presented at a conference in Singapore as an example of applied AI in insurance.
+
+> Specific business rules, model features, scoring formulas, thresholds, workflow configurations, API contracts, and internal data structures have been intentionally omitted to protect project confidentiality.

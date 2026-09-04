@@ -1,26 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio
+
+This project is split into two folders:
+
+- `frontend/` - Next.js portfolio UI
+- `backend/` - FastAPI API for the chat widget
 
 ## Getting Started
 
-First, run the development server:
+Start the backend:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cd backend
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+HF_TOKEN=your_huggingface_token uvicorn main:app --reload --port 4000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Start the frontend in another terminal:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+The frontend uses `http://localhost:4000` for chat by default. Set `NEXT_PUBLIC_API_URL` if the backend runs somewhere else.
+
+Set `NEXT_PUBLIC_CAL_URL` to your Cal.com booking link to show the calendar button in the contact section. Without it, the button opens an email.
+
+Chat context lives at `frontend/public/neha-context.md`. The backend reads that path by default; set `CONTEXT_PATH` to use another file.
 
 To learn more about Next.js, take a look at the following resources:
 

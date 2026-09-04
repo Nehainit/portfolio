@@ -1,21 +1,22 @@
 import SmoothScroll from "@/components/SmoothScroll";
-import Hero from "@/components/Hero";
-import ProjectsSection from "@/components/ProjectsSection";
 import WhySection from "@/components/WhySection";
-import AboutSection from "@/components/AboutSection";
+import AboutSection, { TechnicalArsenal } from "@/components/AboutSection";
 import ContactSection, { Footer } from "@/components/ContactSection";
 import CursorRipple from "@/components/CursorRipple";
 import ChatWidget from "@/components/ChatWidget";
+import SiteHeader from "@/components/SiteHeader";
+import TestimonialSection from "@/components/TestimonialSection";
 
 export default function Home() {
   return (
     <SmoothScroll>
       <CursorRipple />
       <main className="min-h-screen bg-white">
-        <Hero />
-        <ProjectsSection />
-        <WhySection />
+        <SiteHeader />
         <AboutSection />
+        <TechnicalArsenal />
+        <WhySection />
+        <TestimonialSection />
         <ContactSection />
         <Footer />
       </main>

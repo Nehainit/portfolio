@@ -1,0 +1,151 @@
+# LAP Credit Risk Intelligence
+
+## Building an explainable underwriting workflow for Loan Against Property
+
+**Role:** Generative AI Developer
+**Focus:** Credit Risk, Document AI, Machine Learning, Explainable AI, and Python Backend Engineering
+**Technology:** Python, pandas, FastAPI, XGBoost, SHAP, OpenAI, OCR, PostgreSQL, Docker, AgentIQX/Langflow
+
+## Overview
+
+I developed a Python-based credit intelligence platform for **Loan Against Property (LAP)** underwriting. The system combines two complementary decisioning paths: cash-flow analysis from bank statements and structured credit-risk assessment from loan application data.
+
+The objective was not to build a black-box prediction service. The workflow had to combine hard lending policies, machine-learning risk scores, explainable risk drivers, and human-readable reasoning while keeping the final output structured and auditable.
+
+## The Challenge
+
+LAP applications require analysis across financial documents, borrower information, property details, repayment history, and internal lending policies.
+
+The system needed to:
+
+- Process bank statements supplied as PDF or CSV files.
+- Extract and normalise transaction-level financial data.
+- Identify salary, EMI, hidden EMI, risk-spend, and return transactions.
+- Calculate income, FOIR, DTI, LTV, balance, and repayment indicators.
+- Apply mandatory knockout rules before invoking the risk model.
+- Predict credit risk using a trained XGBoost pipeline.
+- Explain the model output using SHAP feature attribution.
+- Generate a clear underwriting explanation with an LLM.
+- Produce consistent rejection reasons and audit-ready outputs.
+
+The core engineering challenge was combining probabilistic AI with deterministic credit policy without allowing the language model to replace lending controls.
+
+## My Role
+
+As the Generative AI Developer, I worked across the AI, data, and backend layers of the system.
+
+My contribution included:
+
+- Designing the end-to-end Python workflow for LAP decisioning.
+- Building document and transaction-processing components.
+- Implementing LLM-assisted transaction categorisation.
+- Developing recurring-debit logic for undisclosed EMI detection.
+- Preparing model features with pandas and consistent field mappings.
+- Integrating the XGBoost prediction pipeline and model probabilities.
+- Adding SHAP-based risk-driver analysis with a model-importance fallback.
+- Creating prompts for structured, context-aware credit explanations.
+- Implementing transparent post-approval pricing logic.
+- Producing structured decision, reason, feature, and audit outputs.
+- Supporting PostgreSQL persistence, Docker deployment, and approval workflows.
+
+## Solution Architecture
+
+### 1. Bank Statement Intelligence
+
+The cash-flow path accepts a bank statement as a PDF or CSV. PDF statements pass through OCR and document extraction before being converted into a transaction table. CSV inputs use the same normalisation layer so both input formats reach a common pandas DataFrame representation.
+
+The pipeline standardises dates, amounts, debit/credit direction, closing balances, and transaction descriptions before downstream analysis.
+
+### 2. LLM-Assisted Transaction Classification
+
+Each transaction is analysed and assigned a business-relevant category, including:
+
+- Income transactions.
+- Detected EMI transactions.
+- Hidden or previously undisclosed EMI transactions.
+- Risk-related spending.
+- Returned-payment transactions.
+
+The LLM is used for transaction understanding, while the downstream financial calculations remain implemented in Python. This keeps the interpretation flexible without making the final eligibility calculation dependent on free-form model output.
+
+### 3. Hidden EMI Detection and Cash-Flow Eligibility
+
+Recurring debit patterns are analysed using deterministic Python post-processing. The resulting income and liability signals are used to calculate monthly income, existing EMI obligations, risk-spend ratios, proposed EMI impact, FOIR, and average monthly balance.
+
+The eligibility layer returns a decision with structured metadata and explicit rejection reasons. This makes the outcome easier to review than a single approve/reject label.
+
+### 4. Knockout Policy Layer
+
+For structured LAP applications, mandatory policy checks run before machine-learning inference. The rules validate lending constraints such as:
+
+- Property-type LTV limits.
+- Minimum bureau requirements.
+- Maximum permitted delinquency.
+- Write-off and settlement history.
+- Negative property-area indicators.
+- Internal repayment delinquency.
+
+Applications that fail a mandatory condition are rejected with a specific reason. Applications that pass continue to feature preparation and model scoring.
+
+### 5. Feature Engineering and XGBoost Prediction
+
+The feature-preparation component converts nested borrower, loan, collateral, external-credit, and behavioural data into the schema expected by the trained model.
+
+Derived features include age, employment tenure, valuation age, LTV, monthly income, income vintage, FOIR, and DTI. The resulting feature set is passed to a serialized XGBoost pipeline for classification and probability estimation.
+
+The model output includes the predicted decision, default probability, confidence information, prepared features, and the original application context.
+
+### 6. SHAP Explainability and LLM Reasoning
+
+SHAP is used to identify which features contributed most to the model output. Where the primary SHAP explainer cannot be used, the workflow falls back to model feature importance so the explanation layer can still return risk signals.
+
+The top risk drivers, predicted decision, and probability are passed to an OpenAI model to generate a concise underwriting explanation. The LLM explains the result; it does not determine the underlying policy decision.
+
+### 7. Credit Pricing
+
+Approved applications continue to a deterministic pricing component. The pricing signal considers bureau score, LTV, FOIR, and tenure using transparent business rules with configured floor and cap limits.
+
+Keeping pricing separate from the LLM makes the recommendation reproducible and easier to audit.
+
+## Architecture at a Glance
+
+**PDF/CSV statement → OCR and parsing → pandas DataFrame → transaction classification → cash-flow rules → eligibility decision**
+
+**Loan application JSON → knockout rules → feature preparation → XGBoost → SHAP → LLM explanation → credit pricing**
+
+Both paths produce structured outputs that can be displayed in the application, persisted for audit, or routed to a human approval workflow.
+
+## Engineering Decisions
+
+### Deterministic rules before probabilistic models
+
+Hard lending constraints are evaluated before model inference. This prevents a model or language model from overriding mandatory credit policy.
+
+### Structured data between every stage
+
+Each component passes validated, structured data to the next stage. This makes the workflow easier to test, debug, monitor, and integrate with APIs.
+
+### Explainability as part of the output contract
+
+Risk drivers and rejection reasons are returned with the decision rather than calculated as an afterthought. This supports analyst review and auditability.
+
+### Human review for uncertain decisions
+
+The platform supports approval tracking and human-in-the-loop processing for cases that require additional review. AI assists the credit workflow while keeping accountability with the lending team.
+
+## Result
+
+The project delivered an end-to-end LAP underwriting workflow capable of converting unstructured financial documents and structured borrower data into:
+
+- Normalised financial transactions.
+- Income and liability indicators.
+- Policy-based eligibility decisions.
+- XGBoost credit-risk predictions.
+- SHAP-based risk drivers.
+- LLM-generated decision explanations.
+- Transparent pricing recommendations.
+- Structured rejection reasons and audit information.
+
+The result was a production-oriented AI decision-support system that combined Python engineering, machine learning, and Generative AI without hiding the lending logic behind a black box.
+
+> Specific customer data, model parameters, internal thresholds, API credentials, and deployment configuration have been omitted to protect project confidentiality.
