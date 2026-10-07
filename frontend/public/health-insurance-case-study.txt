@@ -1,0 +1,59 @@
+# Health Insurance Case Study
+
+## Building a reviewable health-insurance underwriting journey
+
+**Focus:** Customer intake, underwriting, document evidence, decision support, and policy issuance
+**Technology:** React, TypeScript, FastAPI, Python, PostgreSQL, Langflow, machine learning, Amazon S3
+
+## Overview
+
+This project connects a customer insurance journey to an admin underwriting workflow. Customers can explore products, save and resume an application, provide member and health information, attach evidence, and submit a case. The admin portal brings application details, supporting documents, routing reasons, assessments, and decisions into a case-review flow. The backend carries approved cases through offer acceptance and policy issuance.
+
+The codebase is a prototype. Its machine-learning models are trained on synthetic data, and AI assessments are advisory. The case study describes implemented underwriting and policy features; it does not claim a deployed claims-adjudication service or measured business impact.
+
+## The challenge
+
+Health-insurance underwriting must combine information from several sources without turning an uncertain signal into an automatic decision. A customer application may contain multiple members, health declarations, identity details, documents, product terms, and a calculated premium. Missing or positive disclosures require a different path from complete, clear applications.
+
+The engineering task was to keep that journey consistent across customer and admin views while making the basis for each routing and review step visible.
+
+## The solution
+
+### Customer intake and product context
+
+The React customer portal supports product exploration and a multi-step application. The FastAPI backend stores a draft against the selected product version, lets the customer resume it, and records member details and health declarations before submission. Product availability and premium data are checked against the selected coverage rather than inferred from an AI response.
+
+Uploaded application documents are attached to the case through stored file references. Identity details are captured separately; the code explicitly distinguishes capture from identity verification.
+
+### Rules first, with AI as decision support
+
+On submission, the backend evaluates a named set of processing checks covering application completeness, member consent, health answers, referral indicators, document presence, and premium availability. Cases that pass every check take the straight-through processing (STP) route. Cases with missing information or review triggers move to non-straight-through processing (NSTP), with reasons retained for the underwriter.
+
+A separate Langflow-backed STP/NSTP assessment stores its result and any failed attempt for review. It does not change the case's authoritative queue or decision. The repository also contains a member-review classifier with explicit rule gates and explainable drivers. Because that model is trained on synthetic examples, it remains a prototype and is not presented here as a production underwriting model.
+
+### Document evidence and human review
+
+The document-evidence integration reads an attached file, sends it to a configured Langflow flow, and saves extracted fields as pending review. Readability, flags, and failed runs are retained so an underwriter can see what happened. Extracted data is supporting evidence, not an automatic decision.
+
+The admin workflow supports information requests and reviewer decisions. Approval or modification requires a named reviewer, a customer-facing note, confirmed evidence review, and completion of mandatory checks. Referral-only findings can be considered by the underwriter rather than silently dismissed by the model.
+
+### Offers and issuance
+
+Approved cases can receive versioned offers. Publishing a new offer supersedes the previous one, preventing a stale acceptance from driving issuance. Policy issuance checks that the current offer was accepted, evidence and requirements were cleared, and binding was approved. It then records the issued policy for the customer portal where the application has a linked customer and product.
+
+## Architecture at a glance
+
+**Customer portal → FastAPI application and document APIs → PostgreSQL case records → rule-based STP/NSTP routing → admin review → versioned offer → policy issuance**
+
+**Stored evidence → Langflow extraction → pending fields and flags → human review**
+
+The wellness-scoring model is separate from the underwriting classifier, so voluntary wellness inputs do not become underwriting features.
+
+## What this demonstrates
+
+- A connected customer-to-admin insurance workflow with resumable intake and case review.
+- Traceable routing reasons and reviewer controls around sensitive decisions.
+- AI assessments and extracted evidence presented as advisory information.
+- Offer and issuance checks that protect against stale or incomplete case state.
+
+The current code establishes a reviewable prototype. Production underwriting would require adjudicated training data, approved business rules, operational validation, and a separate claims workflow.

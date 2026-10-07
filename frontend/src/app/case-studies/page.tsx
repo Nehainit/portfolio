@@ -42,7 +42,7 @@ export default function CaseStudiesPage() {
       <ProjectsSection
         eyebrow="Case Studies"
         heading="Work in depth."
-        items={caseStudies.filter((study) => ["lap-credit-risk-intelligence", "margin-intelligence"].includes(study.slug))}
+        items={caseStudies.filter((study) => ["lap-credit-risk-intelligence", "health-insurance-case-study", "margin-intelligence"].includes(study.slug))}
       />
     </main>
   );
