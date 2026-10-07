@@ -11,7 +11,10 @@ export type CaseStudy = {
   projectUrl?: string;
   thumbnail?: string;
   thumbnailFit?: "cover" | "contain";
+  thumbnailCaption?: string;
   fullTextPath?: string;
+  detailPage?: boolean;
+  videos?: { title: string; src: string; poster?: string }[];
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -27,6 +30,19 @@ export const caseStudies: CaseStudy[] = [
     fullTextPath: "lap-credit-risk-case-study.txt",
   },
   {
+    slug: "health-insurance-case-study",
+    area: "Health Insurance · Underwriting",
+    title: "Health Insurance Case Study",
+    summary: "A two-portal insurance workflow connecting customer intake, rule-based underwriting, document evidence, advisory AI assessments, human review, and policy issuance.",
+    overview: "A health-insurance application and underwriting prototype with customer and admin portals backed by a FastAPI service. It carries a case from product selection and saved application drafts through review, offer acceptance, and policy issuance.",
+    built: "Connected versioned product and premium data, member declarations, identity and document capture, STP/NSTP routing rules, Langflow-backed advisory assessments, and reviewable evidence results.",
+    delivered: "Kept rule-based routing authoritative while surfacing AI results as decision support. Added reviewer decisions, versioned offers, and issuance checks that require an accepted offer and cleared requirements.",
+    tech: ["React", "TypeScript", "FastAPI", "PostgreSQL", "Langflow", "Python", "Machine Learning", "Amazon S3"],
+    thumbnail: "/health-insurance-portal.png",
+    thumbnailCaption: "Customer portal · Explore policies",
+    fullTextPath: "health-insurance-case-study.txt",
+  },
+  {
     slug: "margin-intelligence",
     area: "Insurance AI",
     title: "Margin Intelligence",
@@ -36,7 +52,27 @@ export const caseStudies: CaseStudy[] = [
     delivered: "Connected trained models, OCR, anomaly and tampering indicators, explainable outputs, and auditable results in a deployment-ready system.",
     tech: ["Python", "Langflow", "Machine Learning", "Generative AI", "OCR", "PostgreSQL"],
     thumbnail: "/margin-intelligence-conference.png",
+    thumbnailCaption: "Conference proof · Singapore · 2026",
     fullTextPath: "margin-intelligence-case-study.txt",
+  },
+  {
+    slug: "text-to-video-multi-agent-system",
+    area: "Generative Video · Work in progress",
+    title: "Text-to-Video Multi-Agent System",
+    summary: "A LangGraph pipeline that turns a story prompt into a narrated short video through shot planning, media generation, quality checks, and editing.",
+    overview: "An end-to-end video workflow that plans a story, creates scene media and narration, validates each stage, and assembles a final edit. The project is under active development.",
+    built: "Designed a multi-agent graph with human review checkpoints, per-shot retries, visual QA, and resumable runs. It can generate animated shots and use FFmpeg motion when animation is unavailable.",
+    delivered: "Connected FastAPI and a browser UI to LangGraph orchestration, media providers, SQLite checkpoints, and FFmpeg-based assembly to produce reviewable video artifacts.",
+    tech: ["Python", "LangGraph", "FastAPI", "FFmpeg", "Magnific", "ElevenLabs"],
+    githubUrl: "https://github.com/Nehainit/Text_to_video_multi_agent_system",
+    thumbnail: "/text-to-video/studio-screenshot.jpg",
+    thumbnailCaption: "Studio interface · Story and film settings",
+    detailPage: true,
+    videos: [
+      { title: "Final film", src: "/text-to-video/final-reel.mp4", poster: "/text-to-video/final-reel-poster.jpg" },
+      { title: "Studio walkthrough · Shot gallery", src: "/text-to-video/studio-clips.mp4", poster: "/text-to-video/studio-clips-poster.jpg" },
+      { title: "Studio walkthrough · Film preview", src: "/text-to-video/film-preview.mp4", poster: "/text-to-video/film-preview-poster.jpg" },
+    ],
   },
   {
     slug: "qurio",
