@@ -1,5 +1,5 @@
-The portfolio chat uses a FastAPI backend and Groq. Install the backend dependencies with `pip install -r backend/requirements.txt`, set `GROQ_API_KEY` in the backend environment, and start it from the repository root with `uvicorn backend.main:app --host 0.0.0.0 --port 4000`.
+The portfolio chat calls Groq through the Next.js `/api/chat` route. Set `GROQ_API_KEY` in the Netlify site's environment variables with Functions access, then redeploy the site. The browser does not need `NEXT_PUBLIC_API_URL` or a separate FastAPI server for chat.
 
-Set `NEXT_PUBLIC_API_URL` for the frontend if the backend is hosted somewhere other than `http://localhost:4000`.
+To update the chat, edit `frontend/src/content/context.md` for Neha's facts and `frontend/src/content/chat-instructions.md` for how the assistant should respond. The backend's experience, case-study, and social API data lives in `backend/portfolio.json`.
 
-To update the chat, edit `backend/context.md` for Neha's facts and `backend/chat-instructions.md` for how the assistant should respond. The backend's experience, case-study, and social API data lives in `backend/portfolio.json`.
+The optional FastAPI backend can still be started from the repository root after `pip install -r backend/requirements.txt` with `uvicorn backend.main:app --host 0.0.0.0 --port 4000`.
