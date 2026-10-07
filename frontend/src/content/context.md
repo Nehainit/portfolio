@@ -21,6 +21,7 @@ Neha Dubey is an AI Engineer with nearly four years of engineering experience ac
 - Qurio: AI learning platform with guided courses, practice, progress tracking, Clerk authentication, Supabase sync, and Anthropic-powered guidance. Work in progress: https://theqrio.com/
 - RapidSKU: Chrome extension for Meesho suppliers to reduce shipping charges and speed up catalog listings; 420+ registered users and 50+ paying customers.
 - CodeDuck Voice Agent: Local-first Electron voice coding companion using FastAPI, Ollama, Whisper, and patch previews.
+- Text-to-Video Multi-Agent System: An active LangGraph project that turns story prompts into narrated short videos through shot planning, media generation, visual QA, human review, and FFmpeg assembly; includes per-shot retries and resumable runs.
 - Other portfolio work includes RAG Criminal Defense Research, AI-Powered ATS, OCR Comparison, Automated Report Generator, Real-Time Data Quality Monitor, Bank Statement Extractor, Cash Flow Intelligence, and Credit Risk Assessment.
 
 ## Skills

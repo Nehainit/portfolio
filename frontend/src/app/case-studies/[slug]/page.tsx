@@ -63,8 +63,8 @@ export default async function CaseStudyPage({
       </header>
 
       <article className="mx-auto max-w-6xl px-6 py-14 md:px-10 md:py-20">
-        <Link href="/case-studies" className="text-sm font-semibold text-gray-500 hover:text-gray-900">
-          ← All case studies
+        <Link href={study.detailPage ? "/projects" : "/case-studies"} className="text-sm font-semibold text-gray-500 hover:text-gray-900">
+          ← All {study.detailPage ? "projects" : "case studies"}
         </Link>
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-end">
@@ -84,16 +84,27 @@ export default async function CaseStudyPage({
           </div>
         </div>
 
+        {study.detailPage && study.githubUrl && (
+          <a
+            href={study.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 inline-flex rounded-full border border-gray-900 px-5 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+          >
+            View source on GitHub ↗
+          </a>
+        )}
+
         {study.thumbnail && (
           <div className="mt-12 overflow-hidden border border-gray-200 bg-gray-50 p-4 md:p-6">
             <Image
               src={study.thumbnail}
-              alt={`${study.title} conference proof`}
+              alt={`${study.title} preview`}
               width={1126}
               height={636}
               className="h-auto w-full"
             />
-            <p className="mt-3 text-xs font-semibold uppercase tracking-[0.16em] text-gray-400">Conference proof · Singapore · 2026</p>
+            <p className="mt-3 text-xs font-semibold uppercase tracking-[0.16em] text-gray-400">{study.thumbnailCaption ?? "Project preview"}</p>
           </div>
         )}
 
@@ -105,6 +116,29 @@ export default async function CaseStudyPage({
             <Detail title="What I built" body={study.built} />
             <Detail title="How I delivered" body={study.delivered} />
           </div>
+        )}
+
+        {study.videos && (
+          <section className="mt-14 border-t border-gray-200 pt-10">
+            <h2 className="text-2xl font-semibold text-gray-950 md:text-3xl">Watch the project</h2>
+            <div className="mt-8 grid gap-8 md:grid-cols-2">
+              {study.videos.map((video, index) => (
+                <figure key={video.src} className={index === 0 ? "md:col-span-2" : undefined}>
+                  <video
+                    controls
+                    playsInline
+                    preload="metadata"
+                    poster={video.poster}
+                    className={`mx-auto block max-h-[720px] w-full rounded-xl bg-black object-contain ${index === 0 ? "max-w-[405px]" : ""}`}
+                  >
+                    <source src={video.src} type="video/mp4" />
+                    Your browser does not support video playback.
+                  </video>
+                  <figcaption className="mt-3 text-sm font-medium text-gray-600">{video.title}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </section>
         )}
       </article>
     </main>

@@ -23,9 +23,9 @@ export default function ProjectsSection({
         {items.map((study) => (
           <Link
             key={study.slug}
-            href={projectLinks && (study.projectUrl || study.githubUrl) ? (study.projectUrl || study.githubUrl)! : `/case-studies/${study.slug}`}
-            target={projectLinks && (study.projectUrl || study.githubUrl) ? "_blank" : undefined}
-            rel={projectLinks && (study.projectUrl || study.githubUrl) ? "noopener noreferrer" : undefined}
+            href={projectLinks && !study.detailPage && (study.projectUrl || study.githubUrl) ? (study.projectUrl || study.githubUrl)! : `/case-studies/${study.slug}`}
+            target={projectLinks && !study.detailPage && (study.projectUrl || study.githubUrl) ? "_blank" : undefined}
+            rel={projectLinks && !study.detailPage && (study.projectUrl || study.githubUrl) ? "noopener noreferrer" : undefined}
             className="group grid overflow-hidden rounded-2xl border border-gray-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-gray-300 hover:shadow-lg md:grid-cols-[280px_1fr]"
           >
             <div className="relative flex min-h-48 items-center justify-center overflow-hidden bg-gray-50 p-5 md:min-h-full">
@@ -51,7 +51,7 @@ export default function ProjectsSection({
                 <span className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-400">{study.area}</span>
                 <h2 className="mt-3 text-2xl font-semibold text-gray-950 md:text-3xl">{study.title}</h2>
                 <p className="mt-4 max-w-2xl text-base leading-7 text-gray-600">{study.summary}</p>
-                <span className="mt-5 inline-block text-sm font-semibold text-gray-900">View project ↗</span>
+                <span className="mt-5 inline-block text-sm font-semibold text-gray-900">{study.detailPage ? "View project details →" : "View project ↗"}</span>
               </div>
               <span className="hidden text-3xl text-gray-300 transition-colors group-hover:text-gray-900 md:block">→</span>
             </div>
