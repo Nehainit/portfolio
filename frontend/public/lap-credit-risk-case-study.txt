@@ -2,9 +2,9 @@
 
 ## Building an explainable underwriting workflow for Loan Against Property
 
-**Role:** Generative AI Developer
-**Focus:** Credit Risk, Document AI, Machine Learning, Explainable AI, and Python Backend Engineering
-**Technology:** Python, pandas, FastAPI, XGBoost, SHAP, OpenAI, OCR, PostgreSQL, Docker, AgentIQX/Langflow
+- **Role:** Generative AI Developer
+- **Focus:** Credit Risk, Document AI, Machine Learning, Explainable AI, and Python Backend Engineering
+- **Technology:** Python, pandas, FastAPI, XGBoost, SHAP, OpenAI, OCR, PostgreSQL, Docker, AgentIQX/Langflow
 
 ## Overview
 

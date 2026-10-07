@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 670" role="img" aria-labelledby="title desc">
+  <title id="title">Lost baggage claims system architecture</title>
+  <desc id="desc">The React reviewer workbench calls a FastAPI service. FastAPI coordinates PostgreSQL, private S3 evidence and reports, and AgentIQX processing. AgentIQX calls PaddleOCR and Azure AI, masks personal information with Presidio, and runs deterministic assessment rules.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto-start-reverse"><path d="M1 1l6 3.5L1 8" fill="none" stroke="#64748b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <style>
+      .box{fill:#fff;stroke:#d9e1e8;stroke-width:2}
+      .label{font:700 15px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:1.4px;fill:#0f766e}
+      .heading{font:700 25px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#172033}
+      .body{font:17px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#556477}
+      .small{font:15px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#556477}
+    </style>
+  </defs>
+  <rect width="1440" height="670" fill="#f8fafc"/>
+
+  <path d="M310 199h60" fill="none" stroke="#64748b" stroke-width="2.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M690 166h68" fill="none" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <path d="M690 252h42v62h26" fill="none" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <path d="M170 116V64h725v35" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="8 7" marker-end="url(#arrow)"/>
+  <text x="430" y="55" class="small">Presigned browser upload</text>
+  <path d="M530 290v126" fill="none" stroke="#64748b" stroke-width="2.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <text x="548" y="363" class="small">Flow request / validated result</text>
+
+  <rect class="box" x="30" y="116" width="280" height="174" rx="18"/>
+  <text x="54" y="150" class="label">BROWSER</text>
+  <text x="54" y="191" class="heading">React workbench</text>
+  <text x="54" y="225" class="body">Intake, queue, evidence,</text>
+  <text x="54" y="253" class="body">rules and reports</text>
+
+  <rect class="box" x="380" y="116" width="310" height="174" rx="18"/>
+  <text x="404" y="150" class="label">API BOUNDARY</text>
+  <text x="404" y="191" class="heading">FastAPI</text>
+  <text x="404" y="225" class="body">Auth, claim versions, uploads,</text>
+  <text x="404" y="253" class="body">flow validation, review actions</text>
+
+  <rect class="box" x="770" y="98" width="630" height="118" rx="18"/>
+  <text x="794" y="132" class="label">EVIDENCE &amp; REPORT STORAGE</text>
+  <text x="794" y="169" class="heading">Private S3</text>
+  <text x="1005" y="169" class="body">Original files · Draft PDFs</text>
+
+  <rect class="box" x="770" y="239" width="630" height="118" rx="18"/>
+  <text x="794" y="273" class="label">CASE STATE</text>
+  <text x="794" y="310" class="heading">PostgreSQL</text>
+  <text x="1005" y="310" class="body">Claims · Versions · Actions</text>
+
+  <rect x="380" y="415" width="1020" height="216" rx="22" fill="#eaf7f4" stroke="#b6dcd4" stroke-width="2"/>
+  <text x="407" y="451" class="label">AGENTIQX ORCHESTRATION</text>
+  <text x="407" y="477" class="small">External OCR and AI services; masking and assessment in the flow</text>
+
+  <g fill="none" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)">
+    <path d="M612 552h30"/><path d="M862 552h30"/><path d="M1112 552h30"/>
+  </g>
+  <rect class="box" x="405" y="501" width="207" height="100" rx="14"/>
+  <text x="423" y="539" class="heading">PaddleOCR</text>
+  <text x="423" y="570" class="small">Page text</text>
+
+  <rect class="box" x="655" y="501" width="207" height="100" rx="14"/>
+  <text x="673" y="539" class="heading">Presidio</text>
+  <text x="673" y="570" class="small">PII masking</text>
+
+  <rect class="box" x="905" y="501" width="207" height="100" rx="14"/>
+  <text x="923" y="539" class="heading">Azure AI</text>
+  <text x="923" y="570" class="small">Labels + cited facts</text>
+
+  <rect class="box" x="1155" y="501" width="207" height="100" rx="14"/>
+  <text x="1173" y="539" class="heading">Rules engine</text>
+  <text x="1173" y="570" class="small">Score + quantum</text>
+</svg>

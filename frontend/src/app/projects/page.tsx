@@ -42,7 +42,7 @@ export default function ProjectsPage() {
       <ProjectsSection
         eyebrow="Projects"
         heading="Things I’ve built."
-        items={caseStudies.filter((study) => !["margin-intelligence", "lap-credit-risk-intelligence", "health-insurance-case-study"].includes(study.slug))}
+        items={caseStudies.filter((study) => !["margin-intelligence", "lap-credit-risk-intelligence", "health-insurance-case-study", "lost-baggage-claim-case-study"].includes(study.slug))}
         projectLinks
       />
     </main>

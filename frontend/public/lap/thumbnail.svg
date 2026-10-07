@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1126 636" role="img" aria-labelledby="title desc">
+  <title id="title">LAP credit risk intelligence</title>
+  <desc id="desc">Illustration of a property, financial statement, and explainable risk indicators.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#14243b"/><stop offset="1" stop-color="#243c5b"/></linearGradient>
+    <linearGradient id="card" x2="1" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#eaf0f7"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="15" stdDeviation="18" flood-color="#091627" flood-opacity=".3"/></filter>
+  </defs>
+  <rect width="1126" height="636" fill="url(#bg)"/>
+  <circle cx="93" cy="75" r="245" fill="#406882" opacity=".25"/>
+  <circle cx="1068" cy="599" r="285" fill="#2d5870" opacity=".3"/>
+  <path d="M68 503c217-80 297-43 438-125s304-59 545-231" fill="none" stroke="#83bdc4" stroke-width="3" stroke-dasharray="8 15" opacity=".38"/>
+
+  <g filter="url(#shadow)" transform="rotate(-7 339 337)">
+    <rect x="169" y="126" width="350" height="443" rx="24" fill="url(#card)"/>
+    <rect x="207" y="167" width="140" height="13" rx="6" fill="#318c98"/>
+    <path d="M207 218h224m-224 29h224m-224 29h179" stroke="#cbd7e3" stroke-width="11" stroke-linecap="round"/>
+    <rect x="207" y="323" width="264" height="183" rx="15" fill="#e6eff5"/>
+    <path d="M231 468v-76m45 76v-47m45 47v-107m45 107v-85m45 85v-131" stroke="#287e8b" stroke-width="20" stroke-linecap="round" opacity=".88"/>
+    <path d="M223 472h217" stroke="#a7bbc9" stroke-width="3"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <circle cx="615" cy="347" r="126" fill="#f6fafc"/>
+    <circle cx="615" cy="347" r="93" fill="none" stroke="#dce8ee" stroke-width="20"/>
+    <path d="M544 289a93 93 0 0 1 151 87" fill="none" stroke="#4ba99f" stroke-width="20" stroke-linecap="round"/>
+    <path d="M615 310v40l34 20" fill="none" stroke="#253d53" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="615" cy="347" r="9" fill="#253d53"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="732" y="187" width="259" height="349" rx="22" fill="#eaf2f5"/>
+    <path d="m772 330 90-82 89 82" fill="none" stroke="#25576e" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M792 326v115h140V326" fill="#c8e3df" stroke="#25576e" stroke-width="9" stroke-linejoin="round"/>
+    <rect x="844" y="366" width="39" height="75" rx="5" fill="#f7fbfc" stroke="#25576e" stroke-width="7"/>
+    <path d="M775 479h169" stroke="#8baab5" stroke-width="11" stroke-linecap="round"/>
+    <circle cx="958" cy="218" r="35" fill="#dff3e9"/>
+    <path d="m942 218 11 11 20-24" fill="none" stroke="#308477" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

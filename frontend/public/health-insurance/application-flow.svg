@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 530" role="img" aria-labelledby="title desc">
+  <title id="title">Health insurance application to policy flow</title>
+  <desc id="desc">Customer chooses cover and completes a saved draft, then submits an application. Authoritative rules route clear cases to straight-through processing or flagged cases to underwriter review. A versioned offer is accepted before issuance checks produce a policy.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="m1 1 6 3.5L1 8" fill="none" stroke="#667785" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <style>.box{fill:#fff;stroke:#d9e2e2;stroke-width:2}.head{font:700 21px Arial,Helvetica,sans-serif;fill:#243038}.body{font:16px Arial,Helvetica,sans-serif;fill:#596a70}.cap{font:700 16px Arial,Helvetica,sans-serif;letter-spacing:1px;fill:#31776d}.note{font:16px Arial,Helvetica,sans-serif;fill:#53666b}</style>
+  </defs>
+  <rect width="1440" height="530" fill="#f7faf8"/>
+  <text x="52" y="53" class="cap">CUSTOMER INTAKE</text>
+  <text x="633" y="53" class="cap">AUTHORITATIVE ROUTING</text>
+  <text x="1113" y="53" class="cap">OFFER &amp; POLICY</text>
+
+  <g fill="none" stroke="#667785" stroke-width="2.6" marker-end="url(#arrow)">
+    <path d="M253 251h35"/><path d="M543 251h38"/>
+  </g>
+  <rect class="box" x="40" y="160" width="213" height="182" rx="18"/>
+  <text class="head" x="61" y="202">Explore cover</text>
+  <text class="body" x="61" y="242">Select product version</text>
+  <text class="body" x="61" y="271">and premium context</text>
+
+  <rect class="box" x="288" y="160" width="255" height="182" rx="18"/>
+  <text class="head" x="310" y="202">Saved application</text>
+  <text class="body" x="310" y="242">Members + declarations</text>
+  <text class="body" x="310" y="271">Identity + documents</text>
+  <text class="body" x="310" y="300">Submit when complete</text>
+
+  <rect x="581" y="160" width="293" height="182" rx="18" fill="#e5f2ed" stroke="#aed4c3" stroke-width="2"/>
+  <text class="head" x="604" y="202">Rules engine</text>
+  <text class="body" x="604" y="242">Completeness + consent</text>
+  <text class="body" x="604" y="271">Health + referral checks</text>
+  <text class="body" x="604" y="300">Evidence + premium</text>
+
+  <rect class="box" x="913" y="91" width="235" height="135" rx="18"/>
+  <rect x="933" y="110" width="62" height="27" rx="13" fill="#d8f1df"/>
+  <text x="964" y="128" text-anchor="middle" class="cap">STP</text>
+  <text class="head" x="933" y="164">Clear checks</text>
+  <text class="body" x="933" y="192">Straight-through route</text>
+
+  <rect class="box" x="913" y="275" width="235" height="150" rx="18"/>
+  <rect x="933" y="294" width="70" height="27" rx="13" fill="#f8e9d7"/>
+  <text x="968" y="312" text-anchor="middle" class="cap">NSTP</text>
+  <text class="head" x="933" y="349">Underwriter review</text>
+  <text class="body" x="933" y="377">Reasons + evidence</text>
+  <text class="body" x="933" y="401">Decision or info request</text>
+  <g fill="none" stroke="#667785" stroke-width="2.6" marker-end="url(#arrow)">
+    <path d="M874 251h19v-92h20"/><path d="M893 251v99h20"/>
+  </g>
+
+  <rect class="box" x="1187" y="160" width="215" height="182" rx="18"/>
+  <text class="head" x="1208" y="202">Versioned offer</text>
+  <text class="body" x="1208" y="242">Latest offer accepted</text>
+  <text class="body" x="1208" y="271">Binding approved</text>
+  <text class="body" x="1208" y="300">Policy issued</text>
+  <g fill="none" stroke="#667785" stroke-width="2.6" marker-end="url(#arrow)">
+    <path d="M1148 159h17v72h22"/><path d="M1148 350h27v-78h12"/>
+  </g>
+
+  <rect x="40" y="457" width="1362" height="47" rx="12" fill="#eaf1ed"/>
+  <text x="721" y="487" text-anchor="middle" class="note">AI assessments support review; the rules engine determines the STP or NSTP queue.</text>
+</svg>
