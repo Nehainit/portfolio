@@ -41,8 +41,7 @@ export default function ChatWidget() {
     setIsLoading(true);
 
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
-      const res = await fetch(`${apiUrl}/api/chat`, {
+      const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: updated }),

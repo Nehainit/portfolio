@@ -16,10 +16,10 @@ API_URL = "https://api.groq.com/openai/v1/chat/completions"
 CONTEXT_PATH = Path(
     os.getenv(
         "CONTEXT_PATH",
-        Path(__file__).with_name("context.md"),
+        Path(__file__).resolve().parents[1] / "frontend/src/content/context.md",
     )
 )
-PROMPT_PATH = Path(__file__).with_name("chat-instructions.md")
+PROMPT_PATH = Path(__file__).resolve().parents[1] / "frontend/src/content/chat-instructions.md"
 
 PORTFOLIO = json.loads((Path(__file__).with_name("portfolio.json")).read_text(encoding="utf-8"))
 
