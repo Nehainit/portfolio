@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1126 636" role="img" aria-labelledby="title desc">
+  <title id="title">Lost baggage claim case study</title>
+  <desc id="desc">Editorial illustration of a checked suitcase, travel documents, a flight path, and a claim review card.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0d2035"/><stop offset="1" stop-color="#163e51"/></linearGradient>
+    <linearGradient id="case" x2="1" y2="1"><stop stop-color="#e7c69b"/><stop offset="1" stop-color="#b78359"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#06111c" flood-opacity=".3"/></filter>
+  </defs>
+  <rect width="1126" height="636" fill="url(#bg)"/>
+  <circle cx="1057" cy="64" r="270" fill="#2b6a70" opacity=".22"/>
+  <circle cx="160" cy="610" r="280" fill="#1b5660" opacity=".32"/>
+  <path d="M92 398c180-165 294-194 425-93s252 85 484-122" fill="none" stroke="#8cc4c0" stroke-width="3" stroke-dasharray="7 13" opacity=".58"/>
+  <g transform="translate(844 143) rotate(17)"><path d="M-43 1 41-9 8 1l-14 40-9 2 1-39-27 10z" fill="#b7d6d0"/></g>
+
+  <circle cx="546" cy="162" r="7" fill="#98d4ca"/>
+  <circle cx="575" cy="162" r="7" fill="#98d4ca" opacity=".55"/>
+  <circle cx="604" cy="162" r="7" fill="#98d4ca" opacity=".3"/>
+  <g filter="url(#shadow)">
+    <rect x="148" y="351" width="287" height="225" rx="30" fill="url(#case)" stroke="#f3debd" stroke-width="4"/>
+    <rect x="183" y="338" width="218" height="239" rx="17" fill="none" stroke="#8c5e42" stroke-width="8" opacity=".8"/>
+    <path d="M234 350v-34c0-20 15-34 34-34h46c19 0 34 14 34 34v34" fill="none" stroke="#dab28b" stroke-width="19"/>
+    <path d="M234 350v-34c0-20 15-34 34-34h46c19 0 34 14 34 34v34" fill="none" stroke="#704d3c" stroke-width="5"/>
+    <rect x="263" y="426" width="56" height="54" rx="10" fill="#f8edda" stroke="#85624b" stroke-width="3"/>
+    <path d="M278 441h26m-26 12h26m-26 12h16" stroke="#0e6672" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="196" cy="582" r="13" fill="#24394a"/><circle cx="388" cy="582" r="13" fill="#24394a"/>
+  </g>
+
+  <g filter="url(#shadow)" transform="rotate(-7 619 436)">
+    <rect x="509" y="303" width="243" height="274" rx="15" fill="#dbe9e9"/>
+    <rect x="529" y="323" width="243" height="274" rx="15" fill="#fff"/>
+    <rect x="556" y="353" width="102" height="14" rx="7" fill="#277c82"/>
+    <path d="M556 396h166m-166 25h166m-166 25h113m-113 25h151" stroke="#cbd9dd" stroke-width="10" stroke-linecap="round"/>
+    <rect x="557" y="512" width="80" height="43" rx="12" fill="#e4f3ee"/>
+    <path d="m582 534 12 10 19-23" fill="none" stroke="#137c70" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="756" y="330" width="284" height="220" rx="20" fill="#f7fbfb"/>
+    <rect x="778" y="351" width="240" height="43" rx="10" fill="#e5f2f0"/>
+    <circle cx="802" cy="372" r="9" fill="#1c8a7b"/>
+    <text x="825" y="379" fill="#174c55" font-family="Arial,Helvetica,sans-serif" font-size="19" font-weight="700">Evidence review</text>
+    <path d="M781 431h135m-135 27h189m-189 27h158" stroke="#c7d9dc" stroke-width="11" stroke-linecap="round"/>
+    <rect x="782" y="508" width="109" height="23" rx="11" fill="#cde9e1"/>
+    <text x="837" y="525" text-anchor="middle" fill="#147367" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="700">HUMAN REVIEW</text>
+  </g>
+</svg>

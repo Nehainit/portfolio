@@ -2,9 +2,9 @@
 
 ## Building an AI intelligence layer for insurance operations
 
-**Role:** GenAI Developer
-**Focus:** Machine Learning, Document AI, Workflow Automation, and API Engineering
-**Technology:** Python, Langflow, Generative AI, Machine Learning, OCR, PostgreSQL, Amazon S3, Docker
+- **Role:** GenAI Developer
+- **Focus:** Machine Learning, Document AI, Workflow Automation, and API Engineering
+- **Technology:** Python, Langflow, Generative AI, Machine Learning, OCR, PostgreSQL, Amazon S3, Docker
 
 ## Overview
 

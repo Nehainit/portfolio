@@ -1,0 +1,57 @@
+# Lost Baggage Claim Case Study
+
+## Building a claims-processing backend that helped onboard a customer
+
+- **My role:** Proof-of-concept backend engineering
+- **Focus:** Total loss of checked-in baggage, document intelligence, claims assessment, and human review
+- **Technology:** React, TypeScript, FastAPI, AgentIQX, Azure AI, PaddleOCR, Presidio, PostgreSQL, Amazon S3
+- **Business outcome:** My backend proof of concept helped my client onboard a new customer.
+
+## Overview
+
+This project supports review of total-loss checked-in-baggage claims. I built the proof-of-concept FastAPI backend: it accepts structured claims, manages evidence and case versions, invokes AgentIQX, validates the returned assessment, and exposes the case to a reviewer. The wider system includes a React workbench for document classification, cited facts, requirements, rule outcomes, payable readiness, a draft report, and version history.
+
+Real user data has been used in this project. This case study describes the system and its controls without reproducing personal records, documents, claim values, or individual outcomes. The repository also contains synthetic examples for development and smoke testing.
+
+## The challenge
+
+A baggage-loss claim can involve a policy schedule, claim form, airline report, travel records, item list, and compensation correspondence. A reviewer needs to know not only what each document says, but whether it supports a particular coverage or payment condition. Missing, conflicting, or unreadable evidence must remain visible instead of being treated as proof that a condition passed or failed.
+
+The engineering challenge was to move from mixed document formats to a traceable assessment without allowing OCR errors or language-model inference to silently become a final claims decision.
+
+## The workflow
+
+### Claim intake and evidence integrity
+
+FastAPI validates structured claim, journey, loss, and amount fields before creating a versioned claim. For each file, it issues a presigned S3 upload with an expected content type and SHA-256 checksum. Submission requires completed uploads and a current aggregate version; stale writes receive a version conflict instead of overwriting a newer case.
+
+The API records an operation ID and processing state in PostgreSQL. Before calling AgentIQX, it reads the uploaded objects and verifies their hashes. The returned assessment must match the expected schema version, claim ID, and document IDs before a successful projection is persisted. Failed operations are recorded separately rather than presented as completed claims.
+
+### OCR, masking, and page classification
+
+The AgentIQX flow invokes an external PaddleOCR service and converts page results into Markdown. Claim-field matching and Presidio then mask personal information before Azure AI sees the text. Page classification uses a fixed document taxonomy and returns an unknown status when a page is missing, unreadable, or too uncertain to label confidently.
+
+An extraction component gathers policy, journey, baggage, item, and airline-compensation facts. Material facts carry page-level evidence references. The review UI presents those citations next to the classification and rule results, so a reviewer can move from a conclusion back to the source page. The assessment also records prompt hashes, model identifiers, and scoring version for reproducibility.
+
+### Deterministic assessment and calculation
+
+The AgentIQX flow passes extracted facts to a versioned assessment component. Its code evaluates document readiness, coverage and eligibility gates, rejection triggers, and the inputs required for a payable calculation. Rejection triggers take precedence; incomplete decision-critical facts produce a deficient assessment. The payable calculation remains unready when item values, policy terms, compensation, or currency evidence is unresolved.
+
+The workbench separates document requirements, rule results, score contributions, calculation readiness, and the reasons behind each status. This makes the assessment easier to review than a single model-generated verdict.
+
+### Reviewer control and audit trail
+
+Reviewers use a queue and claim workspace to inspect evidence, classification, requirements, rules, and a draft PDF report. They can request more information, record a correction, route a case for human review, or accept an eligible assessment. A deficient assessment cannot be finalized as if it were complete.
+
+Finalization checks the current claim version, aggregate version, and assessment hash. An accepted decision and its PDF report are recorded together, with an idempotent response for a repeated acceptance. Reviewer actions and version records preserve the path from an assessment to the final human-accepted outcome.
+
+## Architecture decisions
+
+- **Separate storage from processing:** original evidence and draft PDFs live in S3; PostgreSQL tracks claim versions, operations, assessments, and reviewer actions.
+- **Use AI for reading, code for decisions:** OCR and Azure AI extract and classify evidence; deterministic rules own scoring, rejection precedence, and payable readiness.
+- **Validate the integration boundary:** FastAPI rejects flow outputs with the wrong schema, claim, or document identity before they enter the review workspace.
+- **Keep a human final gate:** the reviewer accepts only a current, eligible assessment; deficient assessments return to information gathering or reassessment.
+
+## Result and limits
+
+The backend proof of concept connected intake, document processing, deterministic assessment, and reviewer actions in one traceable workflow. It helped my client onboard a new customer. No customer identity, contract value, or personal claim information is disclosed. The available project material does not establish a quantified reduction in handling time, accuracy, or payouts, so no performance claim is made here.

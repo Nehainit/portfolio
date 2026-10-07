@@ -2,8 +2,8 @@
 
 ## Building a reviewable health-insurance underwriting journey
 
-**Focus:** Customer intake, underwriting, document evidence, decision support, and policy issuance
-**Technology:** React, TypeScript, FastAPI, Python, PostgreSQL, Langflow, machine learning, Amazon S3
+- **Focus:** Customer intake, underwriting, document evidence, decision support, and policy issuance
+- **Technology:** React, TypeScript, FastAPI, Python, PostgreSQL, Langflow, machine learning, Amazon S3
 
 ## Overview
 

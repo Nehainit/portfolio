@@ -10,6 +10,13 @@ const navItems = [
   ["Socials", "/socials"],
 ];
 
+const caseStudyOrder = [
+  "margin-intelligence",
+  "lost-baggage-claim-case-study",
+  "health-insurance-case-study",
+  "lap-credit-risk-intelligence",
+];
+
 export default function CaseStudiesPage() {
   return (
     <main className="min-h-screen bg-white text-gray-900">
@@ -42,7 +49,7 @@ export default function CaseStudiesPage() {
       <ProjectsSection
         eyebrow="Case Studies"
         heading="Work in depth."
-        items={caseStudies.filter((study) => ["lap-credit-risk-intelligence", "health-insurance-case-study", "margin-intelligence"].includes(study.slug))}
+        items={caseStudyOrder.flatMap((slug) => caseStudies.filter((study) => study.slug === slug))}
       />
     </main>
   );

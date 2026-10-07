@@ -33,6 +33,9 @@ export default async function CaseStudyPage({
   const fullText = study.fullTextPath
     ? await readFile(path.join(process.cwd(), "public", study.fullTextPath), "utf8")
     : null;
+  const overviewIndex = study.diagrams && fullText ? fullText.indexOf("\n## Overview") : -1;
+  const introText = overviewIndex >= 0 ? fullText!.slice(0, overviewIndex) : null;
+  const articleText = introText ? fullText!.slice(overviewIndex + 1) : fullText;
 
   return (
     <main className="min-h-screen bg-white text-gray-900">
@@ -108,8 +111,26 @@ export default async function CaseStudyPage({
           </div>
         )}
 
-        {fullText ? (
-          <MarkdownArticle markdown={fullText} />
+        {introText && <MarkdownArticle markdown={introText} />}
+
+        {study.diagrams && (
+          <section className="mt-14 border-t border-gray-200 pt-10" aria-label="Project diagrams">
+            <h2 className="text-2xl font-semibold text-gray-950 md:text-3xl">System diagrams</h2>
+            <div className="mt-8 space-y-10">
+              {study.diagrams.map((diagram) => (
+                <figure key={diagram.src}>
+                  <figcaption className="mb-4 text-xl font-semibold text-gray-950 md:text-2xl">{diagram.title}</figcaption>
+                  <div className="overflow-x-auto rounded-xl border border-gray-200 bg-gray-50">
+                    <Image src={diagram.src} alt={diagram.alt} width={diagram.width} height={diagram.height} unoptimized className="h-auto min-w-[900px] w-full" />
+                  </div>
+                </figure>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {articleText ? (
+          <MarkdownArticle markdown={articleText} />
         ) : (
           <div className="mt-12 grid gap-10 border-t border-gray-200 pt-10 md:grid-cols-2">
             <Detail title="Project overview" body={study.overview} />

@@ -15,6 +15,7 @@ export type CaseStudy = {
   fullTextPath?: string;
   detailPage?: boolean;
   videos?: { title: string; src: string; poster?: string }[];
+  diagrams?: { title: string; src: string; alt: string; width: number; height: number }[];
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -27,7 +28,12 @@ export const caseStudies: CaseStudy[] = [
     built: "Designed the Python data-processing and AI workflow across OCR extraction, transaction classification, hidden-EMI detection, feature engineering, knockout rules, XGBoost inference, SHAP analysis, and LLM explanations.",
     delivered: "Connected deterministic policy checks with machine-learning risk assessment and generative-AI explanations, producing structured outputs with risk drivers, rejection reasons, audit data, and pricing signals.",
     tech: ["Python", "pandas", "XGBoost", "SHAP", "OpenAI", "OCR", "PostgreSQL", "Docker"],
+    thumbnail: "/lap/thumbnail.svg",
+    thumbnailCaption: "Document intelligence · Credit decision support",
     fullTextPath: "lap-credit-risk-case-study.txt",
+    diagrams: [
+      { title: "Dual-path underwriting flow", src: "/lap/underwriting-flow.svg", alt: "Bank statements are parsed and analysed for cash-flow eligibility while structured applications pass through knockout rules, XGBoost risk prediction, SHAP explanation, LLM reasoning, and deterministic pricing; both produce reviewable outputs.", width: 1440, height: 670 },
+    ],
   },
   {
     slug: "health-insurance-case-study",
@@ -41,6 +47,27 @@ export const caseStudies: CaseStudy[] = [
     thumbnail: "/health-insurance-portal.png",
     thumbnailCaption: "Customer portal · Explore policies",
     fullTextPath: "health-insurance-case-study.txt",
+    diagrams: [
+      { title: "Application to policy flow", src: "/health-insurance/application-flow.svg", alt: "Customer application moves through draft and submission, authoritative STP or NSTP rules, review, versioned offer acceptance, and policy issuance checks.", width: 1440, height: 530 },
+      { title: "Advisory evidence and AI flow", src: "/health-insurance/advisory-flow.svg", alt: "Application documents and submitted cases pass through separate Langflow advisory flows; evidence and assessments are saved for human review without changing rule-based routing.", width: 1440, height: 560 },
+    ],
+  },
+  {
+    slug: "lost-baggage-claim-case-study",
+    area: "Travel Insurance · Claims AI",
+    title: "Lost Baggage Claim Case Study",
+    summary: "I built a proof-of-concept backend for checked-baggage claims, connecting verified evidence intake to AgentIQX assessment and human review. It helped my client onboard a new customer.",
+    overview: "A travel-insurance claims workflow for total loss of checked-in baggage. My contribution was the proof-of-concept backend that connects versioned claim operations, evidence storage, AgentIQX processing, and reviewer APIs. A React workbench presents the resulting case data.",
+    built: "Built the FastAPI proof-of-concept backend for presigned S3 uploads, SHA-256 checks, claim operations, AgentIQX invocation and result validation, PostgreSQL projections, review actions, and assessment reports.",
+    delivered: "Connected the backend to OCR, masking, cited AI extraction, and deterministic assessment in the AgentIQX flow. The working proof of concept helped my client onboard a new customer.",
+    tech: ["React", "TypeScript", "FastAPI", "AgentIQX", "Azure AI", "PaddleOCR", "Presidio", "PostgreSQL", "Amazon S3"],
+    thumbnail: "/lost-baggage/thumbnail.svg",
+    thumbnailCaption: "Checked-baggage claims · Evidence to review",
+    fullTextPath: "lost-baggage-claim-case-study.txt",
+    diagrams: [
+      { title: "Claim processing flow", src: "/lost-baggage/processing-flow.svg", alt: "Claim intake and S3 upload flow through AgentIQX OCR and masking, Azure AI extraction, deterministic rules, then human review and report.", width: 1440, height: 390 },
+      { title: "System architecture", src: "/lost-baggage/system-architecture.svg", alt: "React reviewer workbench connects to FastAPI; FastAPI coordinates PostgreSQL, private S3 storage, and AgentIQX processing with OCR, Presidio, Azure AI, and deterministic rules.", width: 1440, height: 670 },
+    ],
   },
   {
     slug: "margin-intelligence",
@@ -54,6 +81,9 @@ export const caseStudies: CaseStudy[] = [
     thumbnail: "/margin-intelligence-conference.png",
     thumbnailCaption: "Conference proof · Singapore · 2026",
     fullTextPath: "margin-intelligence-case-study.txt",
+    diagrams: [
+      { title: "Insurance AI architecture", src: "/margin-intelligence/architecture.svg", alt: "Application calls Python APIs and Langflow orchestration, which coordinate OCR document intelligence, machine-learning and anomaly signals, and generative explanations; validated outputs are persisted for audit and human review.", width: 1440, height: 610 },
+    ],
   },
   {
     slug: "text-to-video-multi-agent-system",

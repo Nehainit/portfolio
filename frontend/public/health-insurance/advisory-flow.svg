@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 560" role="img" aria-labelledby="title desc">
+  <title id="title">Health insurance advisory evidence and AI flows</title>
+  <desc id="desc">Stored application documents pass through a Langflow evidence extractor into pending fields, flags, and reviewer confirmation. Submitted applications separately pass through a Langflow STP or NSTP advisory assessment into a stored result or failure visible to admins. Neither flow changes authoritative routing.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="m1 1 6 3.5L1 8" fill="none" stroke="#667785" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <style>.box{fill:#fff;stroke:#d9e2e2;stroke-width:2}.head{font:700 20px Arial,Helvetica,sans-serif;fill:#243038}.body{font:16px Arial,Helvetica,sans-serif;fill:#596a70}.cap{font:700 17px Arial,Helvetica,sans-serif;letter-spacing:1px;fill:#31776d}.note{font:16px Arial,Helvetica,sans-serif;fill:#53666b}</style>
+  </defs>
+  <rect width="1440" height="560" fill="#f7faf8"/>
+  <rect x="36" y="40" width="1368" height="210" rx="22" fill="#eaf4ef" stroke="#d4e8dd"/>
+  <text x="65" y="76" class="cap">DOCUMENT EVIDENCE FLOW</text>
+  <g fill="none" stroke="#667785" stroke-width="2.6" marker-end="url(#arrow)">
+    <path d="M298 155h63"/><path d="M651 155h62"/><path d="M998 155h62"/>
+  </g>
+  <rect class="box" x="65" y="100" width="233" height="110" rx="15"/>
+  <text x="85" y="141" class="head">Stored document</text>
+  <text x="85" y="174" class="body">Application attachment</text>
+  <rect class="box" x="361" y="100" width="290" height="110" rx="15"/>
+  <text x="381" y="141" class="head">Langflow extraction</text>
+  <text x="381" y="174" class="body">Fields + readability</text>
+  <rect class="box" x="713" y="100" width="285" height="110" rx="15"/>
+  <text x="733" y="141" class="head">Pending evidence</text>
+  <text x="733" y="174" class="body">Fields + flags + failures</text>
+  <rect class="box" x="1060" y="100" width="305" height="110" rx="15"/>
+  <text x="1080" y="141" class="head">Underwriter review</text>
+  <text x="1080" y="174" class="body">Confirm before decision</text>
+
+  <rect x="36" y="275" width="1368" height="210" rx="22" fill="#ebf1f6" stroke="#dbe5ed"/>
+  <text x="65" y="311" class="cap">ADVISORY ASSESSMENT FLOW</text>
+  <g fill="none" stroke="#667785" stroke-width="2.6" marker-end="url(#arrow)">
+    <path d="M298 390h63"/><path d="M651 390h62"/><path d="M998 390h62"/>
+  </g>
+  <rect class="box" x="65" y="335" width="233" height="110" rx="15"/>
+  <text x="85" y="376" class="head">Submitted case</text>
+  <text x="85" y="409" class="body">Versioned application</text>
+  <rect class="box" x="361" y="335" width="290" height="110" rx="15"/>
+  <text x="381" y="376" class="head">Langflow assessment</text>
+  <text x="381" y="409" class="body">STP/NSTP suggestion</text>
+  <rect class="box" x="713" y="335" width="285" height="110" rx="15"/>
+  <text x="733" y="376" class="head">Stored result</text>
+  <text x="733" y="409" class="body">Assessment or failed run</text>
+  <rect class="box" x="1060" y="335" width="305" height="110" rx="15"/>
+  <text x="1080" y="376" class="head">Admin case view</text>
+  <text x="1080" y="409" class="body">Advice beside rule reasons</text>
+
+  <text x="720" y="529" text-anchor="middle" class="note">Both flows provide reviewable advice; neither changes the authoritative routing queue.</text>
+</svg>
