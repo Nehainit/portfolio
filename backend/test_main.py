@@ -28,7 +28,7 @@ class ChatProviderTest(unittest.TestCase):
         body = json.loads(request.data)
         self.assertEqual(request.full_url, "https://api.groq.com/openai/v1/chat/completions")
         self.assertEqual(request.get_header("Authorization"), "Bearer test-key")
-        self.assertEqual(body["model"], "llama-3.3-70b-versatile")
+        self.assertEqual(body["model"], "openai/gpt-oss-120b")
         self.assertEqual(body["messages"][-1], {"role": "user", "content": "Hi"})
         self.assertEqual(result, {"reply": "Hello!"})
 

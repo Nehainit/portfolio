@@ -31,7 +31,7 @@ test("chat route sends portfolio context to Groq and returns a reply", async () 
   assert.equal(sentRequest.url, "https://api.groq.com/openai/v1/chat/completions");
   assert.equal(sentRequest.options.headers.Authorization, "Bearer test-key");
   const body = JSON.parse(sentRequest.options.body);
-  assert.equal(body.model, "llama-3.3-70b-versatile");
+  assert.equal(body.model, "openai/gpt-oss-120b");
   assert.match(body.messages[0].content, /Neha Dubey/);
   assert.deepEqual(body.messages[1], { role: "user", content: "Hi" });
 });
